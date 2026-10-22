@@ -8,9 +8,9 @@ import (
 	antchainutil "github.com/antchain-openapi-sdk-go/antchain-util/service"
 )
 
-/**
- * Model for initing client
- */
+// Description:
+//
+// Model for initing client
 type Config struct {
 	// accesskey id
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
@@ -19,26 +19,66 @@ type Config struct {
 	// security token
 	SecurityToken *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
 	// http protocol
+	//
+	// example:
+	//
+	// http
 	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
 	// read timeout
+	//
+	// example:
+	//
+	// 10
 	ReadTimeout *int `json:"readTimeout,omitempty" xml:"readTimeout,omitempty"`
 	// connect timeout
+	//
+	// example:
+	//
+	// 10
 	ConnectTimeout *int `json:"connectTimeout,omitempty" xml:"connectTimeout,omitempty"`
 	// http proxy
+	//
+	// example:
+	//
+	// http://localhost
 	HttpProxy *string `json:"httpProxy,omitempty" xml:"httpProxy,omitempty"`
 	// https proxy
+	//
+	// example:
+	//
+	// https://localhost
 	HttpsProxy *string `json:"httpsProxy,omitempty" xml:"httpsProxy,omitempty"`
 	// endpoint
+	//
+	// example:
+	//
+	// cs.aliyuncs.com
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 	// proxy white list
+	//
+	// example:
+	//
+	// http://localhost
 	NoProxy *string `json:"noProxy,omitempty" xml:"noProxy,omitempty"`
 	// max idle conns
+	//
+	// example:
+	//
+	// 3
 	MaxIdleConns *int `json:"maxIdleConns,omitempty" xml:"maxIdleConns,omitempty"`
 	// user agent
+	//
+	// example:
+	//
+	// Alibabacloud/1
 	UserAgent *string `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
 	// socks5 proxy
 	Socks5Proxy *string `json:"socks5Proxy,omitempty" xml:"socks5Proxy,omitempty"`
 	// socks5 network
+	//
+	// example:
+	//
+	// TCP
 	Socks5NetWork *string `json:"socks5NetWork,omitempty" xml:"socks5NetWork,omitempty"`
 	// 长链接最大空闲时长
 	MaxIdleTimeMillis *int `json:"maxIdleTimeMillis,omitempty" xml:"maxIdleTimeMillis,omitempty"`
@@ -153,9 +193,18 @@ type QRCodeDetail struct {
 	// 位置，Top、Left、Width、Height
 	Location []*int64 `json:"location,omitempty" xml:"location,omitempty" require:"true" type:"Repeated"`
 	// 二维码类型
+	// example:
+	//
+	// 二维码类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty" require:"true"`
 	// 二维码内容
+	// example:
+	//
+	// 二维码内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty" require:"true"`
+	// 置信度
+	// example:
+	//
 	// 置信度
 	Probability *string `json:"probability,omitempty" xml:"probability,omitempty" require:"true"`
 }
@@ -193,7 +242,13 @@ type LogoDetail struct {
 	// 位置，Top、Left、Width、Height
 	Location []*int64 `json:"location,omitempty" xml:"location,omitempty" require:"true" type:"Repeated"`
 	// 类型
+	// example:
+	//
+	// LOGO类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty" require:"true"`
+	// 置信度
+	// example:
+	//
 	// 置信度
 	Probability *string `json:"probability,omitempty" xml:"probability,omitempty" require:"true"`
 }
@@ -224,18 +279,39 @@ func (s *LogoDetail) SetProbability(v string) *LogoDetail {
 // maya响应体
 type MayaRedGptResponseDTO struct {
 	// 消息的ID
+	// example:
+	//
+	// 123123
 	MessageId *string `json:"message_id,omitempty" xml:"message_id,omitempty" require:"true"`
 	// 请求ID
+	// example:
+	//
+	// 4564546
 	RequestId *string `json:"request_id,omitempty" xml:"request_id,omitempty" require:"true"`
 	// 会话ID
+	// example:
+	//
+	// 312414124
 	SessionId *string `json:"session_id,omitempty" xml:"session_id,omitempty" require:"true"`
 	// 应答内容
+	// example:
+	//
+	// 你可以问我信息安全的问题
 	Answer *string `json:"answer,omitempty" xml:"answer,omitempty" require:"true"`
 	// 应答内容格式
+	// example:
+	//
+	// PLAINTEXT
 	AnswerFormat *string `json:"answer_format,omitempty" xml:"answer_format,omitempty" require:"true"`
 	// 是否回答结束
+	// example:
+	//
+	// true, false
 	AnswerEnd *bool `json:"answer_end,omitempty" xml:"answer_end,omitempty" require:"true"`
 	// 是否问题有风险
+	// example:
+	//
+	// true, false
 	Safe *bool `json:"safe,omitempty" xml:"safe,omitempty" require:"true"`
 }
 
@@ -285,12 +361,24 @@ func (s *MayaRedGptResponseDTO) SetSafe(v bool) *MayaRedGptResponseDTO {
 // 审核同步标签列表
 type AuditSyncLabel struct {
 	// 标签名：sex-色情
+	// example:
+	//
+	// sex
 	Label *string `json:"label,omitempty" xml:"label,omitempty" require:"true"`
 	// 检测到单个风险标签的置信度：66.25
+	// example:
+	//
+	// 66.25
 	Probability *int64 `json:"probability,omitempty" xml:"probability,omitempty" require:"true"`
 	// 风险标签说明
+	// example:
+	//
+	// 疑似色情内容
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 检测到的敏感词，多个词用逗号分隔，部分标签不会返回敏感词：AA,BB,CC
+	// example:
+	//
+	// AA,BB,CC
 	RiskWords *string `json:"risk_words,omitempty" xml:"risk_words,omitempty" require:"true"`
 }
 
@@ -351,6 +439,9 @@ func (s *QRCodeAuditResult) SetDetails(v []*QRCodeDetail) *QRCodeAuditResult {
 // 攻击手法二级标签
 type AttackSubLabel struct {
 	// 提示词攻击手法二级标签
+	// example:
+	//
+	// role_play：角色扮演
 	AttackSubLabel *string `json:"attack_sub_label,omitempty" xml:"attack_sub_label,omitempty"`
 }
 
@@ -370,30 +461,63 @@ func (s *AttackSubLabel) SetAttackSubLabel(v string) *AttackSubLabel {
 // 主题信息
 type MeiyouTopicWebInfo struct {
 	// 内容文本
+	// example:
+	//
+	// 内容文本
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// 当前楼层
+	// example:
+	//
+	// 1
 	CurrentFloor *int64 `json:"current_floor,omitempty" xml:"current_floor,omitempty"`
 	// 回复楼层
+	// example:
+	//
+	// 1
 	CallBackFloor *int64 `json:"call_back_floor,omitempty" xml:"call_back_floor,omitempty"`
 	// 发布时间戳(毫秒)
 	//
 	PublishTime *int64 `json:"publish_time,omitempty" xml:"publish_time,omitempty"`
 	// 图片URL数组(JSON字符串)
+	// example:
+	//
+	// {}
 	Images *string `json:"images,omitempty" xml:"images,omitempty"`
 	// 用户昵称
+	// example:
+	//
+	// a
 	UserNickname *string `json:"user_nickname,omitempty" xml:"user_nickname,omitempty"`
 	// 用户ID
+	// example:
+	//
+	// 1
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty"`
 	// 用户类型
 	//
+	// example:
+	//
+	// q
 	UserType *string `json:"user_type,omitempty" xml:"user_type,omitempty"`
 	// 用户头像URL
+	// example:
+	//
+	// http://test
 	UserAvatar *string `json:"user_avatar,omitempty" xml:"user_avatar,omitempty"`
 	// 主题ID
+	// example:
+	//
+	// 1
 	TopicId *int64 `json:"topic_id,omitempty" xml:"topic_id,omitempty"`
 	// 回复楼信息
+	// example:
+	//
+	// test
 	CallBackFloorContent *string `json:"call_back_floor_content,omitempty" xml:"call_back_floor_content,omitempty"`
 	// oss存储地址
+	// example:
+	//
+	// {}
 	OssImages *string `json:"oss_images,omitempty" xml:"oss_images,omitempty"`
 }
 
@@ -470,10 +594,19 @@ type MayaStreamResult struct {
 	// maya响应数据
 	Data *MayaRedGptResponseDTO `json:"data,omitempty" xml:"data,omitempty" require:"true"`
 	// 是否成功
+	// example:
+	//
+	// true, false
 	Success *bool `json:"success,omitempty" xml:"success,omitempty" require:"true"`
 	// 错误码
+	// example:
+	//
+	// 10002
 	ErrorCode *string `json:"error_code,omitempty" xml:"error_code,omitempty" require:"true"`
 	// 错误信息
+	// example:
+	//
+	// maya平台调用失败
 	ErrorMsg *string `json:"error_msg,omitempty" xml:"error_msg,omitempty" require:"true"`
 }
 
@@ -508,6 +641,9 @@ func (s *MayaStreamResult) SetErrorMsg(v string) *MayaStreamResult {
 // 二级标签结构
 type SubLabelModel struct {
 	// 二级标签
+	// example:
+	//
+	// 正常
 	SubLabel *string `json:"sub_label,omitempty" xml:"sub_label,omitempty" require:"true"`
 	// 风险关键词列表
 	RiskWords []*string `json:"risk_words,omitempty" xml:"risk_words,omitempty" type:"Repeated"`
@@ -574,8 +710,14 @@ func (s *LogoAuditResult) SetDetails(v []*LogoDetail) *LogoAuditResult {
 // 领域信息
 type FieldModel struct {
 	// 领域一级标签
+	// example:
+	//
+	// 金融
 	FieldCategory *string `json:"field_category,omitempty" xml:"field_category,omitempty"`
 	// 领域二级标签
+	// example:
+	//
+	// 金融
 	FieldLabel *string `json:"field_label,omitempty" xml:"field_label,omitempty"`
 	// 领域一级标签的等级分数
 	FieldScore *int64 `json:"field_score,omitempty" xml:"field_score,omitempty"`
@@ -607,34 +749,79 @@ func (s *FieldModel) SetFieldScore(v int64) *FieldModel {
 // 美柚审核信息存储请求
 type MeiyouAuditSaveWebRequest struct {
 	// 审核记录ID
+	// example:
+	//
+	// 1
 	AuditId *int64 `json:"audit_id,omitempty" xml:"audit_id,omitempty"`
 	// 主题ID
+	// example:
+	//
+	// 1
 	TopicId *int64 `json:"topic_id,omitempty" xml:"topic_id,omitempty"`
 	// 内容文本
+	// example:
+	//
+	// test
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// 发布时间戳(毫秒)
+	// example:
+	//
+	// 1
 	PublishTime *int64 `json:"publish_time,omitempty" xml:"publish_time,omitempty"`
 	// 图片URL数组(JSON字符串)
+	// example:
+	//
+	// {}
 	Images *string `json:"images,omitempty" xml:"images,omitempty"`
 	// 一级业务
+	// example:
+	//
+	// test
 	PrimaryBusiness *string `json:"primary_business,omitempty" xml:"primary_business,omitempty"`
 	// 二级业务
+	// example:
+	//
+	// 1
 	SecondaryBusiness *string `json:"secondary_business,omitempty" xml:"secondary_business,omitempty"`
 	// 用户昵称
+	// example:
+	//
+	// 小蜜
 	UserNickname *string `json:"user_nickname,omitempty" xml:"user_nickname,omitempty"`
 	// 用户ID
+	// example:
+	//
+	// 1
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty"`
 	// 用户类型
+	// example:
+	//
+	// INIT
 	UserType *string `json:"user_type,omitempty" xml:"user_type,omitempty"`
 	// 用户头像URL
+	// example:
+	//
+	// http://test
 	UserAvatar *string `json:"user_avatar,omitempty" xml:"user_avatar,omitempty"`
 	// 操作人
+	// example:
+	//
+	// 小蜜
 	AuditOperator *string `json:"audit_operator,omitempty" xml:"audit_operator,omitempty"`
 	// 审核楼
+	// example:
+	//
+	// 1
 	AuditFloor *int64 `json:"audit_floor,omitempty" xml:"audit_floor,omitempty"`
 	// 版本
+	// example:
+	//
+	// 1
 	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 	// 主题信息
+	// example:
+	//
+	// {}
 	TopicInfos []*MeiyouTopicWebInfo `json:"topic_infos,omitempty" xml:"topic_infos,omitempty" type:"Repeated"`
 }
 
@@ -726,6 +913,9 @@ type AntCloudProdProviderHttpResponse struct {
 	// maya返回结果
 	Response *MayaStreamResult `json:"response,omitempty" xml:"response,omitempty" require:"true"`
 	// 签名
+	// example:
+	//
+	// 5Okl4F2SNc9L2zrWCF8xZ+QPUyA=
 	Sign *string `json:"sign,omitempty" xml:"sign,omitempty" require:"true"`
 }
 
@@ -750,6 +940,9 @@ func (s *AntCloudProdProviderHttpResponse) SetSign(v string) *AntCloudProdProvid
 // 一级标签信息
 type LabelModel struct {
 	// 一级标签
+	// example:
+	//
+	// 正常
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 	// 子标签
 	SubLabels []*SubLabelModel `json:"sub_labels,omitempty" xml:"sub_labels,omitempty" type:"Repeated"`
@@ -776,14 +969,29 @@ func (s *LabelModel) SetSubLabels(v []*SubLabelModel) *LabelModel {
 // 文本同步审核结果
 type TextSyncAuditResult struct {
 	// 任务id
+	// example:
+	//
+	// 123
 	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty" require:"true"`
 	// 数据Id
+	// example:
+	//
+	// 123
 	DataId *string `json:"data_id,omitempty" xml:"data_id,omitempty" require:"true"`
 	// 业务Id - 调用方透传
+	// example:
+	//
+	// 123
 	BusinessId *string `json:"business_id,omitempty" xml:"business_id,omitempty" require:"true"`
 	// 风险等级，根据设置的高低风险分返回，返回值包括： - high：高风险（若命中自定义词库，风险等级默认为高风险） - medium：中风险 - low：低风险 - none：未检测到风险
+	// example:
+	//
+	// high
 	RiskLevel *string `json:"risk_level,omitempty" xml:"risk_level,omitempty" require:"true"`
 	// 审核标签列表
+	// example:
+	//
+	// [{"label":"sex", "probability":66.5, "description":"疑似色情内容", "riskWords":"AA,BB,CC"}]
 	Labels []*AuditSyncLabel `json:"labels,omitempty" xml:"labels,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -823,28 +1031,61 @@ func (s *TextSyncAuditResult) SetLabels(v []*AuditSyncLabel) *TextSyncAuditResul
 // 美柚审核信息存储
 type MeiyouAuditSaveWebInfo struct {
 	// 主题ID
+	// example:
+	//
+	// 1
 	TopicId *int64 `json:"topic_id,omitempty" xml:"topic_id,omitempty"`
 	// 审核记录ID
+	// example:
+	//
+	// 1
 	AuditId *int64 `json:"audit_id,omitempty" xml:"audit_id,omitempty" require:"true"`
 	// 内容文本
+	// example:
+	//
+	// 小蜜
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// 发布时间戳(毫秒)
 	PublishTime *int64 `json:"publish_time,omitempty" xml:"publish_time,omitempty"`
 	// 图片URL数组(JSON字符串)
+	// example:
+	//
+	// {}
 	Images *string `json:"images,omitempty" xml:"images,omitempty"`
+	// 一级业务
+	// example:
+	//
 	// 一级业务
 	PrimaryBusiness *string `json:"primary_business,omitempty" xml:"primary_business,omitempty"`
 	// 二级业务
+	// example:
+	//
+	// 二级业务
 	SecondaryBusiness *string `json:"secondary_business,omitempty" xml:"secondary_business,omitempty"`
 	// 用户昵称
+	// example:
+	//
+	// 用户昵称
 	UserNickname *string `json:"user_nickname,omitempty" xml:"user_nickname,omitempty"`
+	// 用户ID
+	// example:
+	//
 	// 用户ID
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty"`
 	// 用户类型
 	//
+	// example:
+	//
+	// 用户类型
 	UserType *string `json:"user_type,omitempty" xml:"user_type,omitempty"`
 	// 用户头像URL
+	// example:
+	//
+	// http://
 	UserAvatar *string `json:"user_avatar,omitempty" xml:"user_avatar,omitempty"`
+	//  主题信息
+	// example:
+	//
 	//  主题信息
 	TopicInfos *MeiyouTopicWebInfo `json:"topic_infos,omitempty" xml:"topic_infos,omitempty"`
 }
@@ -920,7 +1161,13 @@ func (s *MeiyouAuditSaveWebInfo) SetTopicInfos(v *MeiyouTopicWebInfo) *MeiyouAud
 // 图片审核结果
 type ImageAuditResult struct {
 	// 任务ID
+	// example:
+	//
+	// 任务ID
 	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty" require:"true"`
+	// 数据ID
+	// example:
+	//
 	// 数据ID
 	DataId *string `json:"data_id,omitempty" xml:"data_id,omitempty" require:"true"`
 	// LOGO审核结果
@@ -960,6 +1207,9 @@ func (s *ImageAuditResult) SetQrCodeAuditResult(v *QRCodeAuditResult) *ImageAudi
 // 提示词攻击手法一级标签
 type AttackLabel struct {
 	// 提示词攻击手法一级标签
+	// example:
+	//
+	// jailbreak：越狱攻击
 	AttackLabel *string `json:"attack_label,omitempty" xml:"attack_label,omitempty"`
 	// 提示词攻击手法二级标签列表
 	AttackSubLabels *AttackSubLabel `json:"attack_sub_labels,omitempty" xml:"attack_sub_labels,omitempty"`
@@ -986,44 +1236,104 @@ func (s *AttackLabel) SetAttackSubLabels(v *AttackSubLabel) *AttackLabel {
 // 美柚审核信息
 type MeiyouAuditInfo struct {
 	// 主键id
+	// example:
+	//
+	// 1
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 审核记录ID
+	// example:
+	//
+	// 1
 	AuditId *int64 `json:"audit_id,omitempty" xml:"audit_id,omitempty" require:"true"`
 	// 主题ID
+	// example:
+	//
+	// 1
 	TopicId *int64 `json:"topic_id,omitempty" xml:"topic_id,omitempty"`
+	// 内容文本
+	// example:
+	//
 	// 内容文本
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// 发布时间戳
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	PublishTime *string `json:"publish_time,omitempty" xml:"publish_time,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 图片URL数组(JSON字符串)
+	// example:
+	//
+	// {}
 	Images *string `json:"images,omitempty" xml:"images,omitempty"`
 	// 一级业务
+	// example:
+	//
+	// 1
 	PrimaryBusiness *string `json:"primary_business,omitempty" xml:"primary_business,omitempty"`
 	// 二级业务
+	// example:
+	//
+	// 2
 	SecondaryBusiness *string `json:"secondary_business,omitempty" xml:"secondary_business,omitempty"`
 	// 用户昵称
+	// example:
+	//
+	// 小蜜
 	UserNickname *string `json:"user_nickname,omitempty" xml:"user_nickname,omitempty"`
 	// 用户ID
+	// example:
+	//
+	// 1
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty"`
 	// 用户类型
+	// example:
+	//
+	// test
 	UserType *string `json:"user_type,omitempty" xml:"user_type,omitempty"`
 	// 用户头像URL
+	// example:
+	//
+	// http://test
 	UserAvatar *string `json:"user_avatar,omitempty" xml:"user_avatar,omitempty"`
 	// 审核结果
+	// example:
+	//
+	// OK
 	AuditResult *string `json:"audit_result,omitempty" xml:"audit_result,omitempty"`
 	// 审核原因
+	// example:
+	//
+	// 30
 	AuditReason *string `json:"audit_reason,omitempty" xml:"audit_reason,omitempty"`
 	// 审核原因
+	// example:
+	//
+	// test
 	AuditReasonMsg *string `json:"audit_reason_msg,omitempty" xml:"audit_reason_msg,omitempty"`
 	// 操作人
+	// example:
+	//
+	// 小蜜
 	AuditOperator *string `json:"audit_operator,omitempty" xml:"audit_operator,omitempty"`
 	// 操作时间戳
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	AuditTime *string `json:"audit_time,omitempty" xml:"audit_time,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// oss 转存后的图像地址
+	// example:
+	//
+	// {}
 	OssImages *string `json:"oss_images,omitempty" xml:"oss_images,omitempty"`
 	// 创建时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtCreate *string `json:"gmt_create,omitempty" xml:"gmt_create,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 更新时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtModified *string `json:"gmt_modified,omitempty" xml:"gmt_modified,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 }
 
@@ -1138,26 +1448,59 @@ func (s *MeiyouAuditInfo) SetGmtModified(v string) *MeiyouAuditInfo {
 // 更新美柚itag关系信息
 type UpdateMeiyouItagRelationWebInfo struct {
 	// 主键id
+	// example:
+	//
+	// 1
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 审核记录ID
+	// example:
+	//
+	// 1
 	AuditId *string `json:"audit_id,omitempty" xml:"audit_id,omitempty"`
 	// itag数据ID
+	// example:
+	//
+	// 1
 	ItagDataId *int64 `json:"itag_data_id,omitempty" xml:"itag_data_id,omitempty"`
 	// 美柚任务审核结果推送状态
+	// example:
+	//
+	// INIT
 	MeiyouAuditState *string `json:"meiyou_audit_state,omitempty" xml:"meiyou_audit_state,omitempty"`
 	// 审核不通过原因
+	// example:
+	//
+	// 34
 	RefuseReson *string `json:"refuse_reson,omitempty" xml:"refuse_reson,omitempty"`
 	// 审核不通过图片序号
+	// example:
+	//
+	// ["1","2"]
 	RefuseImages *string `json:"refuse_images,omitempty" xml:"refuse_images,omitempty"`
 	// 美柚itag关联状态
+	// example:
+	//
+	// 1
 	AuditState *string `json:"audit_state,omitempty" xml:"audit_state,omitempty"`
 	// 美柚itag关联状态
+	// example:
+	//
+	// 1
 	TopicState *string `json:"topic_state,omitempty" xml:"topic_state,omitempty"`
 	// 审核结果
+	// example:
+	//
+	// 1
 	AuditResult *string `json:"audit_result,omitempty" xml:"audit_result,omitempty"`
 	// 审核人员
+	// example:
+	//
+	// 1
 	AuditUser *string `json:"audit_user,omitempty" xml:"audit_user,omitempty"`
 	// 审核时间
+	// example:
+	//
+	// 1
 	AuditTime *int64 `json:"audit_time,omitempty" xml:"audit_time,omitempty"`
 }
 
@@ -1438,6 +1781,8 @@ type SubmitAuditTextRequest struct {
 	Seed *string `json:"seed,omitempty" xml:"seed,omitempty"`
 	// 审核时输入的额外信息
 	ExtendInfo *string `json:"extend_info,omitempty" xml:"extend_info,omitempty"`
+	// 产品子业务场景ID
+	SubBusinessId *string `json:"sub_business_id,omitempty" xml:"sub_business_id,omitempty"`
 }
 
 func (s SubmitAuditTextRequest) String() string {
@@ -1490,6 +1835,11 @@ func (s *SubmitAuditTextRequest) SetSeed(v string) *SubmitAuditTextRequest {
 
 func (s *SubmitAuditTextRequest) SetExtendInfo(v string) *SubmitAuditTextRequest {
 	s.ExtendInfo = &v
+	return s
+}
+
+func (s *SubmitAuditTextRequest) SetSubBusinessId(v string) *SubmitAuditTextRequest {
+	s.SubBusinessId = &v
 	return s
 }
 
@@ -1630,6 +1980,8 @@ type SubmitAuditImageRequest struct {
 	Seed *string `json:"seed,omitempty" xml:"seed,omitempty"`
 	// 审核时输入的额外信息
 	ExtendInfo *string `json:"extend_info,omitempty" xml:"extend_info,omitempty"`
+	// 子业务场景
+	SubBusinessId *string `json:"sub_business_id,omitempty" xml:"sub_business_id,omitempty"`
 }
 
 func (s SubmitAuditImageRequest) String() string {
@@ -1682,6 +2034,11 @@ func (s *SubmitAuditImageRequest) SetSeed(v string) *SubmitAuditImageRequest {
 
 func (s *SubmitAuditImageRequest) SetExtendInfo(v string) *SubmitAuditImageRequest {
 	s.ExtendInfo = &v
+	return s
+}
+
+func (s *SubmitAuditImageRequest) SetSubBusinessId(v string) *SubmitAuditImageRequest {
+	s.SubBusinessId = &v
 	return s
 }
 
@@ -1824,6 +2181,8 @@ type SubmitAuditAudioRequest struct {
 	Seed *string `json:"seed,omitempty" xml:"seed,omitempty"`
 	// 审核时输入的额外信息
 	ExtendInfo *string `json:"extend_info,omitempty" xml:"extend_info,omitempty"`
+	// 子业务场景
+	SubBusinessId *string `json:"sub_business_id,omitempty" xml:"sub_business_id,omitempty"`
 }
 
 func (s SubmitAuditAudioRequest) String() string {
@@ -1876,6 +2235,11 @@ func (s *SubmitAuditAudioRequest) SetSeed(v string) *SubmitAuditAudioRequest {
 
 func (s *SubmitAuditAudioRequest) SetExtendInfo(v string) *SubmitAuditAudioRequest {
 	s.ExtendInfo = &v
+	return s
+}
+
+func (s *SubmitAuditAudioRequest) SetSubBusinessId(v string) *SubmitAuditAudioRequest {
+	s.SubBusinessId = &v
 	return s
 }
 
@@ -2017,6 +2381,8 @@ type SubmitAuditVideoRequest struct {
 	Seed *string `json:"seed,omitempty" xml:"seed,omitempty"`
 	// 审核时输入的额外信息
 	ExtendInfo *string `json:"extend_info,omitempty" xml:"extend_info,omitempty"`
+	// 子业务场景ID
+	SubBusinessId *string `json:"sub_business_id,omitempty" xml:"sub_business_id,omitempty"`
 }
 
 func (s SubmitAuditVideoRequest) String() string {
@@ -2069,6 +2435,11 @@ func (s *SubmitAuditVideoRequest) SetSeed(v string) *SubmitAuditVideoRequest {
 
 func (s *SubmitAuditVideoRequest) SetExtendInfo(v string) *SubmitAuditVideoRequest {
 	s.ExtendInfo = &v
+	return s
+}
+
+func (s *SubmitAuditVideoRequest) SetSubBusinessId(v string) *SubmitAuditVideoRequest {
+	s.SubBusinessId = &v
 	return s
 }
 
@@ -7586,10 +7957,11 @@ type Client struct {
 	MaxRequestsPerHost      *int
 }
 
-/**
- * Init client with Config
- * @param config config contains the necessary information to create a client
- */
+// Description:
+//
+// # Init client with Config
+//
+// @param config - config contains the necessary information to create a client
 func NewClient(config *Config) (*Client, error) {
 	client := new(Client)
 	err := client.Init(config)
@@ -7597,7 +7969,7 @@ func NewClient(config *Config) (*Client, error) {
 }
 
 func (client *Client) Init(config *Config) (_err error) {
-	if tea.BoolValue(util.IsUnset(tea.ToMap(config))) {
+	if tea.BoolValue(util.IsUnset(config)) {
 		_err = tea.NewSDKError(map[string]interface{}{
 			"code":    "ParameterMissing",
 			"message": "'config' can not be unset",
@@ -7626,16 +7998,23 @@ func (client *Client) Init(config *Config) (_err error) {
 	return nil
 }
 
-/**
- * Encapsulate the request and invoke the network
- * @param action api name
- * @param protocol http or https
- * @param method e.g. GET
- * @param pathname pathname of every api
- * @param request which contains request params
- * @param runtime which controls some details of call api, such as retry times
- * @return the response
- */
+// Description:
+//
+// # Encapsulate the request and invoke the network
+//
+// @param action - api name
+//
+// @param protocol - http or https
+//
+// @param method - e.g. GET
+//
+// @param pathname - pathname of every api
+//
+// @param request - which contains request params
+//
+// @param runtime - which controls some details of call api, such as retry times
+//
+// @return the response
 func (client *Client) DoRequest(version *string, action *string, protocol *string, method *string, pathname *string, request map[string]interface{}, headers map[string]*string, runtime *util.RuntimeOptions) (_result map[string]interface{}, _err error) {
 	_err = tea.Validate(runtime)
 	if _err != nil {
@@ -7686,7 +8065,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.1.62"),
+				"sdk_version":      tea.String("1.1.64"),
 				"_prod_code":       tea.String("AITECH"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -7744,10 +8123,11 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 	return _resp, _err
 }
 
-/**
- * Description: LOGO/二维码审核
- * Summary: LOGO/二维码审核
- */
+// Description:
+//
+// Description: LOGO/二维码审核
+//
+// Summary: LOGO/二维码审核
 func (client *Client) ApplyAuditImage(request *ApplyAuditImageRequest) (_result *ApplyAuditImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7760,10 +8140,11 @@ func (client *Client) ApplyAuditImage(request *ApplyAuditImageRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: LOGO/二维码审核
- * Summary: LOGO/二维码审核
- */
+// Description:
+//
+// Description: LOGO/二维码审核
+//
+// Summary: LOGO/二维码审核
 func (client *Client) ApplyAuditImageEx(request *ApplyAuditImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyAuditImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7778,10 +8159,11 @@ func (client *Client) ApplyAuditImageEx(request *ApplyAuditImageRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 主站审核能力回调
- * Summary: 主站审核能力回调
- */
+// Description:
+//
+// Description: 主站审核能力回调
+//
+// Summary: 主站审核能力回调
 func (client *Client) CallbackSofaAudit(request *CallbackSofaAuditRequest) (_result *CallbackSofaAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7794,10 +8176,11 @@ func (client *Client) CallbackSofaAudit(request *CallbackSofaAuditRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 主站审核能力回调
- * Summary: 主站审核能力回调
- */
+// Description:
+//
+// Description: 主站审核能力回调
+//
+// Summary: 主站审核能力回调
 func (client *Client) CallbackSofaAuditEx(request *CallbackSofaAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackSofaAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7812,10 +8195,11 @@ func (client *Client) CallbackSofaAuditEx(request *CallbackSofaAuditRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 文本审核入审
- * Summary: 文本审核入审
- */
+// Description:
+//
+// Description: 文本审核入审
+//
+// Summary: 文本审核入审
 func (client *Client) SubmitAuditText(request *SubmitAuditTextRequest) (_result *SubmitAuditTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7828,10 +8212,11 @@ func (client *Client) SubmitAuditText(request *SubmitAuditTextRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 文本审核入审
- * Summary: 文本审核入审
- */
+// Description:
+//
+// Description: 文本审核入审
+//
+// Summary: 文本审核入审
 func (client *Client) SubmitAuditTextEx(request *SubmitAuditTextRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7846,10 +8231,11 @@ func (client *Client) SubmitAuditTextEx(request *SubmitAuditTextRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 文本审核查询
- * Summary: 文本审核查询
- */
+// Description:
+//
+// Description: 文本审核查询
+//
+// Summary: 文本审核查询
 func (client *Client) QueryAuditText(request *QueryAuditTextRequest) (_result *QueryAuditTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7862,10 +8248,11 @@ func (client *Client) QueryAuditText(request *QueryAuditTextRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 文本审核查询
- * Summary: 文本审核查询
- */
+// Description:
+//
+// Description: 文本审核查询
+//
+// Summary: 文本审核查询
 func (client *Client) QueryAuditTextEx(request *QueryAuditTextRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7880,10 +8267,11 @@ func (client *Client) QueryAuditTextEx(request *QueryAuditTextRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 图片审核入审
- * Summary: 图片审核入审
- */
+// Description:
+//
+// Description: 图片审核入审
+//
+// Summary: 图片审核入审
 func (client *Client) SubmitAuditImage(request *SubmitAuditImageRequest) (_result *SubmitAuditImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7896,10 +8284,11 @@ func (client *Client) SubmitAuditImage(request *SubmitAuditImageRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 图片审核入审
- * Summary: 图片审核入审
- */
+// Description:
+//
+// Description: 图片审核入审
+//
+// Summary: 图片审核入审
 func (client *Client) SubmitAuditImageEx(request *SubmitAuditImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7914,10 +8303,11 @@ func (client *Client) SubmitAuditImageEx(request *SubmitAuditImageRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 图片审核查询
- * Summary: 图片审核查询
- */
+// Description:
+//
+// Description: 图片审核查询
+//
+// Summary: 图片审核查询
 func (client *Client) QueryAuditImage(request *QueryAuditImageRequest) (_result *QueryAuditImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7930,10 +8320,11 @@ func (client *Client) QueryAuditImage(request *QueryAuditImageRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 图片审核查询
- * Summary: 图片审核查询
- */
+// Description:
+//
+// Description: 图片审核查询
+//
+// Summary: 图片审核查询
 func (client *Client) QueryAuditImageEx(request *QueryAuditImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7948,10 +8339,11 @@ func (client *Client) QueryAuditImageEx(request *QueryAuditImageRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 音频审核入审
- * Summary: 音频审核入审
- */
+// Description:
+//
+// Description: 音频审核入审
+//
+// Summary: 音频审核入审
 func (client *Client) SubmitAuditAudio(request *SubmitAuditAudioRequest) (_result *SubmitAuditAudioResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7964,10 +8356,11 @@ func (client *Client) SubmitAuditAudio(request *SubmitAuditAudioRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 音频审核入审
- * Summary: 音频审核入审
- */
+// Description:
+//
+// Description: 音频审核入审
+//
+// Summary: 音频审核入审
 func (client *Client) SubmitAuditAudioEx(request *SubmitAuditAudioRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditAudioResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7982,10 +8375,11 @@ func (client *Client) SubmitAuditAudioEx(request *SubmitAuditAudioRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 音频审核查询
- * Summary: 音频审核查询
- */
+// Description:
+//
+// Description: 音频审核查询
+//
+// Summary: 音频审核查询
 func (client *Client) QueryAuditAudio(request *QueryAuditAudioRequest) (_result *QueryAuditAudioResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -7998,10 +8392,11 @@ func (client *Client) QueryAuditAudio(request *QueryAuditAudioRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 音频审核查询
- * Summary: 音频审核查询
- */
+// Description:
+//
+// Description: 音频审核查询
+//
+// Summary: 音频审核查询
 func (client *Client) QueryAuditAudioEx(request *QueryAuditAudioRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditAudioResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8016,10 +8411,11 @@ func (client *Client) QueryAuditAudioEx(request *QueryAuditAudioRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 视频审核入审
- * Summary: 视频审核入审
- */
+// Description:
+//
+// Description: 视频审核入审
+//
+// Summary: 视频审核入审
 func (client *Client) SubmitAuditVideo(request *SubmitAuditVideoRequest) (_result *SubmitAuditVideoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8032,10 +8428,11 @@ func (client *Client) SubmitAuditVideo(request *SubmitAuditVideoRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 视频审核入审
- * Summary: 视频审核入审
- */
+// Description:
+//
+// Description: 视频审核入审
+//
+// Summary: 视频审核入审
 func (client *Client) SubmitAuditVideoEx(request *SubmitAuditVideoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditVideoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8050,10 +8447,11 @@ func (client *Client) SubmitAuditVideoEx(request *SubmitAuditVideoRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 视频审核查询
- * Summary: 视频审核查询
- */
+// Description:
+//
+// Description: 视频审核查询
+//
+// Summary: 视频审核查询
 func (client *Client) QueryAuditVideo(request *QueryAuditVideoRequest) (_result *QueryAuditVideoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8066,10 +8464,11 @@ func (client *Client) QueryAuditVideo(request *QueryAuditVideoRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 视频审核查询
- * Summary: 视频审核查询
- */
+// Description:
+//
+// Description: 视频审核查询
+//
+// Summary: 视频审核查询
 func (client *Client) QueryAuditVideoEx(request *QueryAuditVideoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditVideoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8084,10 +8483,11 @@ func (client *Client) QueryAuditVideoEx(request *QueryAuditVideoRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 文本同步审核接口，调用阿里云内容安全审核增强版
- * Summary: 文本同步审核
- */
+// Description:
+//
+// Description: 文本同步审核接口，调用阿里云内容安全审核增强版
+//
+// Summary: 文本同步审核
 func (client *Client) ApplyAuditText(request *ApplyAuditTextRequest) (_result *ApplyAuditTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8100,10 +8500,11 @@ func (client *Client) ApplyAuditText(request *ApplyAuditTextRequest) (_result *A
 	return _result, _err
 }
 
-/**
- * Description: 文本同步审核接口，调用阿里云内容安全审核增强版
- * Summary: 文本同步审核
- */
+// Description:
+//
+// Description: 文本同步审核接口，调用阿里云内容安全审核增强版
+//
+// Summary: 文本同步审核
 func (client *Client) ApplyAuditTextEx(request *ApplyAuditTextRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyAuditTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8118,10 +8519,11 @@ func (client *Client) ApplyAuditTextEx(request *ApplyAuditTextRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 同步接口，只调用机审能力
- * Summary: 图片机审基础版
- */
+// Description:
+//
+// Description: 同步接口，只调用机审能力
+//
+// Summary: 图片机审基础版
 func (client *Client) ApplyAuditImagebase(request *ApplyAuditImagebaseRequest) (_result *ApplyAuditImagebaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8134,10 +8536,11 @@ func (client *Client) ApplyAuditImagebase(request *ApplyAuditImagebaseRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 同步接口，只调用机审能力
- * Summary: 图片机审基础版
- */
+// Description:
+//
+// Description: 同步接口，只调用机审能力
+//
+// Summary: 图片机审基础版
 func (client *Client) ApplyAuditImagebaseEx(request *ApplyAuditImagebaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyAuditImagebaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8152,10 +8555,11 @@ func (client *Client) ApplyAuditImagebaseEx(request *ApplyAuditImagebaseRequest,
 	return _result, _err
 }
 
-/**
- * Description: 同步接口，只调用机审能力
- * Summary: 图片审核增强版
- */
+// Description:
+//
+// Description: 同步接口，只调用机审能力
+//
+// Summary: 图片审核增强版
 func (client *Client) ApplyAuditImageadvanced(request *ApplyAuditImageadvancedRequest) (_result *ApplyAuditImageadvancedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8168,10 +8572,11 @@ func (client *Client) ApplyAuditImageadvanced(request *ApplyAuditImageadvancedRe
 	return _result, _err
 }
 
-/**
- * Description: 同步接口，只调用机审能力
- * Summary: 图片审核增强版
- */
+// Description:
+//
+// Description: 同步接口，只调用机审能力
+//
+// Summary: 图片审核增强版
 func (client *Client) ApplyAuditImageadvancedEx(request *ApplyAuditImageadvancedRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyAuditImageadvancedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8186,10 +8591,11 @@ func (client *Client) ApplyAuditImageadvancedEx(request *ApplyAuditImageadvanced
 	return _result, _err
 }
 
-/**
- * Description: 异步接口，只调用机审能力
- * Summary: 音频审核通用版入审
- */
+// Description:
+//
+// Description: 异步接口，只调用机审能力
+//
+// Summary: 音频审核通用版入审
 func (client *Client) SubmitAuditAudiobase(request *SubmitAuditAudiobaseRequest) (_result *SubmitAuditAudiobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8202,10 +8608,11 @@ func (client *Client) SubmitAuditAudiobase(request *SubmitAuditAudiobaseRequest)
 	return _result, _err
 }
 
-/**
- * Description: 异步接口，只调用机审能力
- * Summary: 音频审核通用版入审
- */
+// Description:
+//
+// Description: 异步接口，只调用机审能力
+//
+// Summary: 音频审核通用版入审
 func (client *Client) SubmitAuditAudiobaseEx(request *SubmitAuditAudiobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditAudiobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8220,10 +8627,11 @@ func (client *Client) SubmitAuditAudiobaseEx(request *SubmitAuditAudiobaseReques
 	return _result, _err
 }
 
-/**
- * Description: 异步接口，只调用机审能力
- * Summary: 音频审核通用版查询
- */
+// Description:
+//
+// Description: 异步接口，只调用机审能力
+//
+// Summary: 音频审核通用版查询
 func (client *Client) QueryAuditAudiobase(request *QueryAuditAudiobaseRequest) (_result *QueryAuditAudiobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8236,10 +8644,11 @@ func (client *Client) QueryAuditAudiobase(request *QueryAuditAudiobaseRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 异步接口，只调用机审能力
- * Summary: 音频审核通用版查询
- */
+// Description:
+//
+// Description: 异步接口，只调用机审能力
+//
+// Summary: 音频审核通用版查询
 func (client *Client) QueryAuditAudiobaseEx(request *QueryAuditAudiobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditAudiobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8254,10 +8663,11 @@ func (client *Client) QueryAuditAudiobaseEx(request *QueryAuditAudiobaseRequest,
 	return _result, _err
 }
 
-/**
- * Description: 异步通知，只调用机审能力
- * Summary: 视频审核通用版入审
- */
+// Description:
+//
+// Description: 异步通知，只调用机审能力
+//
+// Summary: 视频审核通用版入审
 func (client *Client) SubmitAuditVideobase(request *SubmitAuditVideobaseRequest) (_result *SubmitAuditVideobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8270,10 +8680,11 @@ func (client *Client) SubmitAuditVideobase(request *SubmitAuditVideobaseRequest)
 	return _result, _err
 }
 
-/**
- * Description: 异步通知，只调用机审能力
- * Summary: 视频审核通用版入审
- */
+// Description:
+//
+// Description: 异步通知，只调用机审能力
+//
+// Summary: 视频审核通用版入审
 func (client *Client) SubmitAuditVideobaseEx(request *SubmitAuditVideobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditVideobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8288,10 +8699,11 @@ func (client *Client) SubmitAuditVideobaseEx(request *SubmitAuditVideobaseReques
 	return _result, _err
 }
 
-/**
- * Description: 异步查询
- * Summary: 视频审核通用版查询
- */
+// Description:
+//
+// Description: 异步查询
+//
+// Summary: 视频审核通用版查询
 func (client *Client) QueryAuditVideobase(request *QueryAuditVideobaseRequest) (_result *QueryAuditVideobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8304,10 +8716,11 @@ func (client *Client) QueryAuditVideobase(request *QueryAuditVideobaseRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 异步查询
- * Summary: 视频审核通用版查询
- */
+// Description:
+//
+// Description: 异步查询
+//
+// Summary: 视频审核通用版查询
 func (client *Client) QueryAuditVideobaseEx(request *QueryAuditVideobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditVideobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8322,10 +8735,11 @@ func (client *Client) QueryAuditVideobaseEx(request *QueryAuditVideobaseRequest,
 	return _result, _err
 }
 
-/**
- * Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
- * Summary: 阿里云内容审核回调
- */
+// Description:
+//
+// Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
+//
+// Summary: 阿里云内容审核回调
 func (client *Client) CallbackAliyunAudit(request *CallbackAliyunAuditRequest) (_result *CallbackAliyunAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8338,10 +8752,11 @@ func (client *Client) CallbackAliyunAudit(request *CallbackAliyunAuditRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
- * Summary: 阿里云内容审核回调
- */
+// Description:
+//
+// Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
+//
+// Summary: 阿里云内容审核回调
 func (client *Client) CallbackAliyunAuditEx(request *CallbackAliyunAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackAliyunAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8356,10 +8771,11 @@ func (client *Client) CallbackAliyunAuditEx(request *CallbackAliyunAuditRequest,
 	return _result, _err
 }
 
-/**
- * Description: 外部文件转存
- * Summary: 文件转存接口
- */
+// Description:
+//
+// Description: 外部文件转存
+//
+// Summary: 文件转存接口
 func (client *Client) TransferAuditFile(request *TransferAuditFileRequest) (_result *TransferAuditFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8372,10 +8788,11 @@ func (client *Client) TransferAuditFile(request *TransferAuditFileRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 外部文件转存
- * Summary: 文件转存接口
- */
+// Description:
+//
+// Description: 外部文件转存
+//
+// Summary: 文件转存接口
 func (client *Client) TransferAuditFileEx(request *TransferAuditFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *TransferAuditFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8390,10 +8807,11 @@ func (client *Client) TransferAuditFileEx(request *TransferAuditFileRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 文件下载接口
- * Summary: 文件下载接口
- */
+// Description:
+//
+// Description: 文件下载接口
+//
+// Summary: 文件下载接口
 func (client *Client) DownloadAuditFile(request *DownloadAuditFileRequest) (_result *DownloadAuditFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8406,10 +8824,11 @@ func (client *Client) DownloadAuditFile(request *DownloadAuditFileRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 文件下载接口
- * Summary: 文件下载接口
- */
+// Description:
+//
+// Description: 文件下载接口
+//
+// Summary: 文件下载接口
 func (client *Client) DownloadAuditFileEx(request *DownloadAuditFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DownloadAuditFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8424,10 +8843,11 @@ func (client *Client) DownloadAuditFileEx(request *DownloadAuditFileRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 美柚待审核信息保存
- * Summary: 美柚待审核信息保存接口
- */
+// Description:
+//
+// Description: 美柚待审核信息保存
+//
+// Summary: 美柚待审核信息保存接口
 func (client *Client) SaveAuditMeiyou(request *SaveAuditMeiyouRequest) (_result *SaveAuditMeiyouResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8440,10 +8860,11 @@ func (client *Client) SaveAuditMeiyou(request *SaveAuditMeiyouRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 美柚待审核信息保存
- * Summary: 美柚待审核信息保存接口
- */
+// Description:
+//
+// Description: 美柚待审核信息保存
+//
+// Summary: 美柚待审核信息保存接口
 func (client *Client) SaveAuditMeiyouEx(request *SaveAuditMeiyouRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SaveAuditMeiyouResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8458,10 +8879,11 @@ func (client *Client) SaveAuditMeiyouEx(request *SaveAuditMeiyouRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核信息存储请求
- * Summary: 美柚审核信息存储请求
- */
+// Description:
+//
+// Description: 美柚审核信息存储请求
+//
+// Summary: 美柚审核信息存储请求
 func (client *Client) UpdateAuditMeiyou(request *UpdateAuditMeiyouRequest) (_result *UpdateAuditMeiyouResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8474,10 +8896,11 @@ func (client *Client) UpdateAuditMeiyou(request *UpdateAuditMeiyouRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核信息存储请求
- * Summary: 美柚审核信息存储请求
- */
+// Description:
+//
+// Description: 美柚审核信息存储请求
+//
+// Summary: 美柚审核信息存储请求
 func (client *Client) UpdateAuditMeiyouEx(request *UpdateAuditMeiyouRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateAuditMeiyouResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8492,10 +8915,11 @@ func (client *Client) UpdateAuditMeiyouEx(request *UpdateAuditMeiyouRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核信息查询接口
- * Summary: 美柚审核信息查询接口
- */
+// Description:
+//
+// Description: 美柚审核信息查询接口
+//
+// Summary: 美柚审核信息查询接口
 func (client *Client) QueryMeiyouAudit(request *QueryMeiyouAuditRequest) (_result *QueryMeiyouAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8508,10 +8932,11 @@ func (client *Client) QueryMeiyouAudit(request *QueryMeiyouAuditRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核信息查询接口
- * Summary: 美柚审核信息查询接口
- */
+// Description:
+//
+// Description: 美柚审核信息查询接口
+//
+// Summary: 美柚审核信息查询接口
 func (client *Client) QueryMeiyouAuditEx(request *QueryMeiyouAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMeiyouAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8526,10 +8951,11 @@ func (client *Client) QueryMeiyouAuditEx(request *QueryMeiyouAuditRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 美柚主题信息查询接口
- * Summary: 美柚主题信息查询接口
- */
+// Description:
+//
+// Description: 美柚主题信息查询接口
+//
+// Summary: 美柚主题信息查询接口
 func (client *Client) QueryMeiyouAudittopic(request *QueryMeiyouAudittopicRequest) (_result *QueryMeiyouAudittopicResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8542,10 +8968,11 @@ func (client *Client) QueryMeiyouAudittopic(request *QueryMeiyouAudittopicReques
 	return _result, _err
 }
 
-/**
- * Description: 美柚主题信息查询接口
- * Summary: 美柚主题信息查询接口
- */
+// Description:
+//
+// Description: 美柚主题信息查询接口
+//
+// Summary: 美柚主题信息查询接口
 func (client *Client) QueryMeiyouAudittopicEx(request *QueryMeiyouAudittopicRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMeiyouAudittopicResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8560,10 +8987,11 @@ func (client *Client) QueryMeiyouAudittopicEx(request *QueryMeiyouAudittopicRequ
 	return _result, _err
 }
 
-/**
- * Description: 更新美柚itag关联关系接口
- * Summary: 更新美柚itag关联关系接口
- */
+// Description:
+//
+// Description: 更新美柚itag关联关系接口
+//
+// Summary: 更新美柚itag关联关系接口
 func (client *Client) UpdateMeiyouAudit(request *UpdateMeiyouAuditRequest) (_result *UpdateMeiyouAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8576,10 +9004,11 @@ func (client *Client) UpdateMeiyouAudit(request *UpdateMeiyouAuditRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 更新美柚itag关联关系接口
- * Summary: 更新美柚itag关联关系接口
- */
+// Description:
+//
+// Description: 更新美柚itag关联关系接口
+//
+// Summary: 更新美柚itag关联关系接口
 func (client *Client) UpdateMeiyouAuditEx(request *UpdateMeiyouAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateMeiyouAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8594,10 +9023,11 @@ func (client *Client) UpdateMeiyouAuditEx(request *UpdateMeiyouAuditRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 查询美柚itag关联信息
- * Summary: 查询美柚itag关联信息
- */
+// Description:
+//
+// Description: 查询美柚itag关联信息
+//
+// Summary: 查询美柚itag关联信息
 func (client *Client) QueryMeiyouItagrelation(request *QueryMeiyouItagrelationRequest) (_result *QueryMeiyouItagrelationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8610,10 +9040,11 @@ func (client *Client) QueryMeiyouItagrelation(request *QueryMeiyouItagrelationRe
 	return _result, _err
 }
 
-/**
- * Description: 查询美柚itag关联信息
- * Summary: 查询美柚itag关联信息
- */
+// Description:
+//
+// Description: 查询美柚itag关联信息
+//
+// Summary: 查询美柚itag关联信息
 func (client *Client) QueryMeiyouItagrelationEx(request *QueryMeiyouItagrelationRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMeiyouItagrelationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8628,10 +9059,11 @@ func (client *Client) QueryMeiyouItagrelationEx(request *QueryMeiyouItagrelation
 	return _result, _err
 }
 
-/**
- * Description: 更新美柚itag关联信息
- * Summary: 更新美柚itag关联信息
- */
+// Description:
+//
+// Description: 更新美柚itag关联信息
+//
+// Summary: 更新美柚itag关联信息
 func (client *Client) UpdateMeiyouItagrelation(request *UpdateMeiyouItagrelationRequest) (_result *UpdateMeiyouItagrelationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8644,10 +9076,11 @@ func (client *Client) UpdateMeiyouItagrelation(request *UpdateMeiyouItagrelation
 	return _result, _err
 }
 
-/**
- * Description: 更新美柚itag关联信息
- * Summary: 更新美柚itag关联信息
- */
+// Description:
+//
+// Description: 更新美柚itag关联信息
+//
+// Summary: 更新美柚itag关联信息
 func (client *Client) UpdateMeiyouItagrelationEx(request *UpdateMeiyouItagrelationRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateMeiyouItagrelationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8662,10 +9095,11 @@ func (client *Client) UpdateMeiyouItagrelationEx(request *UpdateMeiyouItagrelati
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核结果查询
- * Summary: 美柚审核结果查询
- */
+// Description:
+//
+// Description: 美柚审核结果查询
+//
+// Summary: 美柚审核结果查询
 func (client *Client) QueryMeiyouAuditresult(request *QueryMeiyouAuditresultRequest) (_result *QueryMeiyouAuditresultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8678,10 +9112,11 @@ func (client *Client) QueryMeiyouAuditresult(request *QueryMeiyouAuditresultRequ
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核结果查询
- * Summary: 美柚审核结果查询
- */
+// Description:
+//
+// Description: 美柚审核结果查询
+//
+// Summary: 美柚审核结果查询
 func (client *Client) QueryMeiyouAuditresultEx(request *QueryMeiyouAuditresultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMeiyouAuditresultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8696,10 +9131,11 @@ func (client *Client) QueryMeiyouAuditresultEx(request *QueryMeiyouAuditresultRe
 	return _result, _err
 }
 
-/**
- * Description: 分页查询美柚审核信息接口
- * Summary: 分页查询美柚审核信息接口
- */
+// Description:
+//
+// Description: 分页查询美柚审核信息接口
+//
+// Summary: 分页查询美柚审核信息接口
 func (client *Client) PagequeryMeiyouAudit(request *PagequeryMeiyouAuditRequest) (_result *PagequeryMeiyouAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8712,10 +9148,11 @@ func (client *Client) PagequeryMeiyouAudit(request *PagequeryMeiyouAuditRequest)
 	return _result, _err
 }
 
-/**
- * Description: 分页查询美柚审核信息接口
- * Summary: 分页查询美柚审核信息接口
- */
+// Description:
+//
+// Description: 分页查询美柚审核信息接口
+//
+// Summary: 分页查询美柚审核信息接口
 func (client *Client) PagequeryMeiyouAuditEx(request *PagequeryMeiyouAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PagequeryMeiyouAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8730,10 +9167,11 @@ func (client *Client) PagequeryMeiyouAuditEx(request *PagequeryMeiyouAuditReques
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核信息存储（仅itask）
- * Summary: 美柚审核信息存储（仅itask）
- */
+// Description:
+//
+// Description: 美柚审核信息存储（仅itask）
+//
+// Summary: 美柚审核信息存储（仅itask）
 func (client *Client) SubmitAuditMeiyou(request *SubmitAuditMeiyouRequest) (_result *SubmitAuditMeiyouResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8746,10 +9184,11 @@ func (client *Client) SubmitAuditMeiyou(request *SubmitAuditMeiyouRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 美柚审核信息存储（仅itask）
- * Summary: 美柚审核信息存储（仅itask）
- */
+// Description:
+//
+// Description: 美柚审核信息存储（仅itask）
+//
+// Summary: 美柚审核信息存储（仅itask）
 func (client *Client) SubmitAuditMeiyouEx(request *SubmitAuditMeiyouRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditMeiyouResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8764,10 +9203,11 @@ func (client *Client) SubmitAuditMeiyouEx(request *SubmitAuditMeiyouRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 文档人审入审
- * Summary: 文档人审入审
- */
+// Description:
+//
+// Description: 文档人审入审
+//
+// Summary: 文档人审入审
 func (client *Client) SubmitAuditDocument(request *SubmitAuditDocumentRequest) (_result *SubmitAuditDocumentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8780,10 +9220,11 @@ func (client *Client) SubmitAuditDocument(request *SubmitAuditDocumentRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 文档人审入审
- * Summary: 文档人审入审
- */
+// Description:
+//
+// Description: 文档人审入审
+//
+// Summary: 文档人审入审
 func (client *Client) SubmitAuditDocumentEx(request *SubmitAuditDocumentRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitAuditDocumentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8798,10 +9239,11 @@ func (client *Client) SubmitAuditDocumentEx(request *SubmitAuditDocumentRequest,
 	return _result, _err
 }
 
-/**
- * Description: 文档人审查询
- * Summary: 文档人审查询
- */
+// Description:
+//
+// Description: 文档人审查询
+//
+// Summary: 文档人审查询
 func (client *Client) QueryAuditDocument(request *QueryAuditDocumentRequest) (_result *QueryAuditDocumentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8814,10 +9256,11 @@ func (client *Client) QueryAuditDocument(request *QueryAuditDocumentRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 文档人审查询
- * Summary: 文档人审查询
- */
+// Description:
+//
+// Description: 文档人审查询
+//
+// Summary: 文档人审查询
 func (client *Client) QueryAuditDocumentEx(request *QueryAuditDocumentRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAuditDocumentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8832,10 +9275,11 @@ func (client *Client) QueryAuditDocumentEx(request *QueryAuditDocumentRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 阿里云ADB调用接口
- * Summary: 阿里云ADB调用接口
- */
+// Description:
+//
+// Description: 阿里云ADB调用接口
+//
+// Summary: 阿里云ADB调用接口
 func (client *Client) QueryAicoguardcloudAdbsink(request *QueryAicoguardcloudAdbsinkRequest) (_result *QueryAicoguardcloudAdbsinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8848,10 +9292,11 @@ func (client *Client) QueryAicoguardcloudAdbsink(request *QueryAicoguardcloudAdb
 	return _result, _err
 }
 
-/**
- * Description: 阿里云ADB调用接口
- * Summary: 阿里云ADB调用接口
- */
+// Description:
+//
+// Description: 阿里云ADB调用接口
+//
+// Summary: 阿里云ADB调用接口
 func (client *Client) QueryAicoguardcloudAdbsinkEx(request *QueryAicoguardcloudAdbsinkRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAicoguardcloudAdbsinkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8866,10 +9311,11 @@ func (client *Client) QueryAicoguardcloudAdbsinkEx(request *QueryAicoguardcloudA
 	return _result, _err
 }
 
-/**
- * Description: 红色GPT流式调用网关接口
- * Summary: 红色GPT网关方式调用接口
- */
+// Description:
+//
+// Description: 红色GPT流式调用网关接口
+//
+// Summary: 红色GPT网关方式调用接口
 func (client *Client) QueryGuardcoreRedgpt(request *QueryGuardcoreRedgptRequest) (_result *QueryGuardcoreRedgptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8882,10 +9328,11 @@ func (client *Client) QueryGuardcoreRedgpt(request *QueryGuardcoreRedgptRequest)
 	return _result, _err
 }
 
-/**
- * Description: 红色GPT流式调用网关接口
- * Summary: 红色GPT网关方式调用接口
- */
+// Description:
+//
+// Description: 红色GPT流式调用网关接口
+//
+// Summary: 红色GPT网关方式调用接口
 func (client *Client) QueryGuardcoreRedgptEx(request *QueryGuardcoreRedgptRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardcoreRedgptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8900,10 +9347,11 @@ func (client *Client) QueryGuardcoreRedgptEx(request *QueryGuardcoreRedgptReques
 	return _result, _err
 }
 
-/**
- * Description: 阿里云ADB调用接口
- * Summary: 阿里云ADB调用接口
- */
+// Description:
+//
+// Description: 阿里云ADB调用接口
+//
+// Summary: 阿里云ADB调用接口
 func (client *Client) QueryAicoguardAdbsink(request *QueryAicoguardAdbsinkRequest) (_result *QueryAicoguardAdbsinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8916,10 +9364,11 @@ func (client *Client) QueryAicoguardAdbsink(request *QueryAicoguardAdbsinkReques
 	return _result, _err
 }
 
-/**
- * Description: 阿里云ADB调用接口
- * Summary: 阿里云ADB调用接口
- */
+// Description:
+//
+// Description: 阿里云ADB调用接口
+//
+// Summary: 阿里云ADB调用接口
 func (client *Client) QueryAicoguardAdbsinkEx(request *QueryAicoguardAdbsinkRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAicoguardAdbsinkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8934,10 +9383,11 @@ func (client *Client) QueryAicoguardAdbsinkEx(request *QueryAicoguardAdbsinkRequ
 	return _result, _err
 }
 
-/**
- * Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
- * Summary: 阿里云内容安全回调
- */
+// Description:
+//
+// Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
+//
+// Summary: 阿里云内容安全回调
 func (client *Client) CallbackGuardAliyun(request *CallbackGuardAliyunRequest) (_result *CallbackGuardAliyunResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8950,10 +9400,11 @@ func (client *Client) CallbackGuardAliyun(request *CallbackGuardAliyunRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
- * Summary: 阿里云内容安全回调
- */
+// Description:
+//
+// Description: 阿里云音频、视频的审核结果，经过 adapter 中转，通过该接口回调回来
+//
+// Summary: 阿里云内容安全回调
 func (client *Client) CallbackGuardAliyunEx(request *CallbackGuardAliyunRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackGuardAliyunResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8968,10 +9419,11 @@ func (client *Client) CallbackGuardAliyunEx(request *CallbackGuardAliyunRequest,
 	return _result, _err
 }
 
-/**
- * Description: 主站ITASK审核能力回调
- * Summary: 主站ITASK审核能力回调
- */
+// Description:
+//
+// Description: 主站ITASK审核能力回调
+//
+// Summary: 主站ITASK审核能力回调
 func (client *Client) CallbackGuardItask(request *CallbackGuardItaskRequest) (_result *CallbackGuardItaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -8984,10 +9436,11 @@ func (client *Client) CallbackGuardItask(request *CallbackGuardItaskRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 主站ITASK审核能力回调
- * Summary: 主站ITASK审核能力回调
- */
+// Description:
+//
+// Description: 主站ITASK审核能力回调
+//
+// Summary: 主站ITASK审核能力回调
 func (client *Client) CallbackGuardItaskEx(request *CallbackGuardItaskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackGuardItaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9002,10 +9455,11 @@ func (client *Client) CallbackGuardItaskEx(request *CallbackGuardItaskRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 音频人审查询
- * Summary: 音频人审查询
- */
+// Description:
+//
+// Description: 音频人审查询
+//
+// Summary: 音频人审查询
 func (client *Client) QueryGuardAudio(request *QueryGuardAudioRequest) (_result *QueryGuardAudioResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9018,10 +9472,11 @@ func (client *Client) QueryGuardAudio(request *QueryGuardAudioRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 音频人审查询
- * Summary: 音频人审查询
- */
+// Description:
+//
+// Description: 音频人审查询
+//
+// Summary: 音频人审查询
 func (client *Client) QueryGuardAudioEx(request *QueryGuardAudioRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardAudioResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9036,10 +9491,11 @@ func (client *Client) QueryGuardAudioEx(request *QueryGuardAudioRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 音频人审入审
- * Summary: 音频人审入审
- */
+// Description:
+//
+// Description: 音频人审入审
+//
+// Summary: 音频人审入审
 func (client *Client) SubmitGuardAudio(request *SubmitGuardAudioRequest) (_result *SubmitGuardAudioResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9052,10 +9508,11 @@ func (client *Client) SubmitGuardAudio(request *SubmitGuardAudioRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 音频人审入审
- * Summary: 音频人审入审
- */
+// Description:
+//
+// Description: 音频人审入审
+//
+// Summary: 音频人审入审
 func (client *Client) SubmitGuardAudioEx(request *SubmitGuardAudioRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardAudioResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9070,10 +9527,11 @@ func (client *Client) SubmitGuardAudioEx(request *SubmitGuardAudioRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 图片人审查询
- * Summary: 图片人审查询
- */
+// Description:
+//
+// Description: 图片人审查询
+//
+// Summary: 图片人审查询
 func (client *Client) QueryGuardImage(request *QueryGuardImageRequest) (_result *QueryGuardImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9086,10 +9544,11 @@ func (client *Client) QueryGuardImage(request *QueryGuardImageRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 图片人审查询
- * Summary: 图片人审查询
- */
+// Description:
+//
+// Description: 图片人审查询
+//
+// Summary: 图片人审查询
 func (client *Client) QueryGuardImageEx(request *QueryGuardImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9104,10 +9563,11 @@ func (client *Client) QueryGuardImageEx(request *QueryGuardImageRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 图片人审入审
- * Summary: 图片人审入审
- */
+// Description:
+//
+// Description: 图片人审入审
+//
+// Summary: 图片人审入审
 func (client *Client) SubmitGuardImage(request *SubmitGuardImageRequest) (_result *SubmitGuardImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9120,10 +9580,11 @@ func (client *Client) SubmitGuardImage(request *SubmitGuardImageRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 图片人审入审
- * Summary: 图片人审入审
- */
+// Description:
+//
+// Description: 图片人审入审
+//
+// Summary: 图片人审入审
 func (client *Client) SubmitGuardImageEx(request *SubmitGuardImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9138,10 +9599,11 @@ func (client *Client) SubmitGuardImageEx(request *SubmitGuardImageRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 文本人审查询
- * Summary: 文本人审查询
- */
+// Description:
+//
+// Description: 文本人审查询
+//
+// Summary: 文本人审查询
 func (client *Client) QueryGuardText(request *QueryGuardTextRequest) (_result *QueryGuardTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9154,10 +9616,11 @@ func (client *Client) QueryGuardText(request *QueryGuardTextRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 文本人审查询
- * Summary: 文本人审查询
- */
+// Description:
+//
+// Description: 文本人审查询
+//
+// Summary: 文本人审查询
 func (client *Client) QueryGuardTextEx(request *QueryGuardTextRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9172,10 +9635,11 @@ func (client *Client) QueryGuardTextEx(request *QueryGuardTextRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 文本人审提交
- * Summary: 文本人审提交
- */
+// Description:
+//
+// Description: 文本人审提交
+//
+// Summary: 文本人审提交
 func (client *Client) SubmitGuardText(request *SubmitGuardTextRequest) (_result *SubmitGuardTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9188,10 +9652,11 @@ func (client *Client) SubmitGuardText(request *SubmitGuardTextRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 文本人审提交
- * Summary: 文本人审提交
- */
+// Description:
+//
+// Description: 文本人审提交
+//
+// Summary: 文本人审提交
 func (client *Client) SubmitGuardTextEx(request *SubmitGuardTextRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9206,10 +9671,11 @@ func (client *Client) SubmitGuardTextEx(request *SubmitGuardTextRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 视频人审查询
- * Summary: 视频人审查询
- */
+// Description:
+//
+// Description: 视频人审查询
+//
+// Summary: 视频人审查询
 func (client *Client) QueryGuardVideo(request *QueryGuardVideoRequest) (_result *QueryGuardVideoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9222,10 +9688,11 @@ func (client *Client) QueryGuardVideo(request *QueryGuardVideoRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 视频人审查询
- * Summary: 视频人审查询
- */
+// Description:
+//
+// Description: 视频人审查询
+//
+// Summary: 视频人审查询
 func (client *Client) QueryGuardVideoEx(request *QueryGuardVideoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardVideoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9240,10 +9707,11 @@ func (client *Client) QueryGuardVideoEx(request *QueryGuardVideoRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 视频人审提交
- * Summary: 视频人审提交
- */
+// Description:
+//
+// Description: 视频人审提交
+//
+// Summary: 视频人审提交
 func (client *Client) SubmitGuardVideo(request *SubmitGuardVideoRequest) (_result *SubmitGuardVideoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9256,10 +9724,11 @@ func (client *Client) SubmitGuardVideo(request *SubmitGuardVideoRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 视频人审提交
- * Summary: 视频人审提交
- */
+// Description:
+//
+// Description: 视频人审提交
+//
+// Summary: 视频人审提交
 func (client *Client) SubmitGuardVideoEx(request *SubmitGuardVideoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardVideoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9274,10 +9743,11 @@ func (client *Client) SubmitGuardVideoEx(request *SubmitGuardVideoRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 音频机审查询-基础版
- * Summary: 音频机审查询-基础版
- */
+// Description:
+//
+// Description: 音频机审查询-基础版
+//
+// Summary: 音频机审查询-基础版
 func (client *Client) QueryGuardAudiobase(request *QueryGuardAudiobaseRequest) (_result *QueryGuardAudiobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9290,10 +9760,11 @@ func (client *Client) QueryGuardAudiobase(request *QueryGuardAudiobaseRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 音频机审查询-基础版
- * Summary: 音频机审查询-基础版
- */
+// Description:
+//
+// Description: 音频机审查询-基础版
+//
+// Summary: 音频机审查询-基础版
 func (client *Client) QueryGuardAudiobaseEx(request *QueryGuardAudiobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardAudiobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9308,10 +9779,11 @@ func (client *Client) QueryGuardAudiobaseEx(request *QueryGuardAudiobaseRequest,
 	return _result, _err
 }
 
-/**
- * Description: 音频机审入审-基础版
- * Summary: 音频机审入审-基础版
- */
+// Description:
+//
+// Description: 音频机审入审-基础版
+//
+// Summary: 音频机审入审-基础版
 func (client *Client) SubmitGuardAudiobase(request *SubmitGuardAudiobaseRequest) (_result *SubmitGuardAudiobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9324,10 +9796,11 @@ func (client *Client) SubmitGuardAudiobase(request *SubmitGuardAudiobaseRequest)
 	return _result, _err
 }
 
-/**
- * Description: 音频机审入审-基础版
- * Summary: 音频机审入审-基础版
- */
+// Description:
+//
+// Description: 音频机审入审-基础版
+//
+// Summary: 音频机审入审-基础版
 func (client *Client) SubmitGuardAudiobaseEx(request *SubmitGuardAudiobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardAudiobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9342,10 +9815,11 @@ func (client *Client) SubmitGuardAudiobaseEx(request *SubmitGuardAudiobaseReques
 	return _result, _err
 }
 
-/**
- * Description: 图片机审申请-基础版
- * Summary: 图片机审申请-基础版
- */
+// Description:
+//
+// Description: 图片机审申请-基础版
+//
+// Summary: 图片机审申请-基础版
 func (client *Client) ApplyGuardImagebase(request *ApplyGuardImagebaseRequest) (_result *ApplyGuardImagebaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9358,10 +9832,11 @@ func (client *Client) ApplyGuardImagebase(request *ApplyGuardImagebaseRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 图片机审申请-基础版
- * Summary: 图片机审申请-基础版
- */
+// Description:
+//
+// Description: 图片机审申请-基础版
+//
+// Summary: 图片机审申请-基础版
 func (client *Client) ApplyGuardImagebaseEx(request *ApplyGuardImagebaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyGuardImagebaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9376,10 +9851,11 @@ func (client *Client) ApplyGuardImagebaseEx(request *ApplyGuardImagebaseRequest,
 	return _result, _err
 }
 
-/**
- * Description: 图片机审申请-增强版
- * Summary: 图片机审申请-增强版
- */
+// Description:
+//
+// Description: 图片机审申请-增强版
+//
+// Summary: 图片机审申请-增强版
 func (client *Client) ApplyGuardImageadvanced(request *ApplyGuardImageadvancedRequest) (_result *ApplyGuardImageadvancedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9392,10 +9868,11 @@ func (client *Client) ApplyGuardImageadvanced(request *ApplyGuardImageadvancedRe
 	return _result, _err
 }
 
-/**
- * Description: 图片机审申请-增强版
- * Summary: 图片机审申请-增强版
- */
+// Description:
+//
+// Description: 图片机审申请-增强版
+//
+// Summary: 图片机审申请-增强版
 func (client *Client) ApplyGuardImageadvancedEx(request *ApplyGuardImageadvancedRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyGuardImageadvancedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9410,10 +9887,11 @@ func (client *Client) ApplyGuardImageadvancedEx(request *ApplyGuardImageadvanced
 	return _result, _err
 }
 
-/**
- * Description: 文本机审申请-基础版
- * Summary: 文本机审申请-基础版
- */
+// Description:
+//
+// Description: 文本机审申请-基础版
+//
+// Summary: 文本机审申请-基础版
 func (client *Client) ApplyGuardTextbase(request *ApplyGuardTextbaseRequest) (_result *ApplyGuardTextbaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9426,10 +9904,11 @@ func (client *Client) ApplyGuardTextbase(request *ApplyGuardTextbaseRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 文本机审申请-基础版
- * Summary: 文本机审申请-基础版
- */
+// Description:
+//
+// Description: 文本机审申请-基础版
+//
+// Summary: 文本机审申请-基础版
 func (client *Client) ApplyGuardTextbaseEx(request *ApplyGuardTextbaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyGuardTextbaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9444,10 +9923,11 @@ func (client *Client) ApplyGuardTextbaseEx(request *ApplyGuardTextbaseRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 视频机审查询-基础版
- * Summary: 视频机审查询-基础版
- */
+// Description:
+//
+// Description: 视频机审查询-基础版
+//
+// Summary: 视频机审查询-基础版
 func (client *Client) QueryGuardVideobase(request *QueryGuardVideobaseRequest) (_result *QueryGuardVideobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9460,10 +9940,11 @@ func (client *Client) QueryGuardVideobase(request *QueryGuardVideobaseRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 视频机审查询-基础版
- * Summary: 视频机审查询-基础版
- */
+// Description:
+//
+// Description: 视频机审查询-基础版
+//
+// Summary: 视频机审查询-基础版
 func (client *Client) QueryGuardVideobaseEx(request *QueryGuardVideobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardVideobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9478,10 +9959,11 @@ func (client *Client) QueryGuardVideobaseEx(request *QueryGuardVideobaseRequest,
 	return _result, _err
 }
 
-/**
- * Description: 视频机审提交-基础版
- * Summary: 视频机审提交-基础版
- */
+// Description:
+//
+// Description: 视频机审提交-基础版
+//
+// Summary: 视频机审提交-基础版
 func (client *Client) SubmitGuardVideobase(request *SubmitGuardVideobaseRequest) (_result *SubmitGuardVideobaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9494,10 +9976,11 @@ func (client *Client) SubmitGuardVideobase(request *SubmitGuardVideobaseRequest)
 	return _result, _err
 }
 
-/**
- * Description: 视频机审提交-基础版
- * Summary: 视频机审提交-基础版
- */
+// Description:
+//
+// Description: 视频机审提交-基础版
+//
+// Summary: 视频机审提交-基础版
 func (client *Client) SubmitGuardVideobaseEx(request *SubmitGuardVideobaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardVideobaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9512,10 +9995,11 @@ func (client *Client) SubmitGuardVideobaseEx(request *SubmitGuardVideobaseReques
 	return _result, _err
 }
 
-/**
- * Description: 用于身份证、个人信息识别、防伪等
- * Summary: 图片光鉴识别链路
- */
+// Description:
+//
+// Description: 用于身份证、个人信息识别、防伪等
+//
+// Summary: 图片光鉴识别链路
 func (client *Client) ApplyGuardImagemultiply(request *ApplyGuardImagemultiplyRequest) (_result *ApplyGuardImagemultiplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9528,10 +10012,11 @@ func (client *Client) ApplyGuardImagemultiply(request *ApplyGuardImagemultiplyRe
 	return _result, _err
 }
 
-/**
- * Description: 用于身份证、个人信息识别、防伪等
- * Summary: 图片光鉴识别链路
- */
+// Description:
+//
+// Description: 用于身份证、个人信息识别、防伪等
+//
+// Summary: 图片光鉴识别链路
 func (client *Client) ApplyGuardImagemultiplyEx(request *ApplyGuardImagemultiplyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyGuardImagemultiplyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9546,10 +10031,11 @@ func (client *Client) ApplyGuardImagemultiplyEx(request *ApplyGuardImagemultiply
 	return _result, _err
 }
 
-/**
- * Description: 输出文本风险检测
- * Summary: 输出文本风险检测
- */
+// Description:
+//
+// Description: 输出文本风险检测
+//
+// Summary: 输出文本风险检测
 func (client *Client) CheckGuardAnswer(request *CheckGuardAnswerRequest) (_result *CheckGuardAnswerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9562,10 +10048,11 @@ func (client *Client) CheckGuardAnswer(request *CheckGuardAnswerRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 输出文本风险检测
- * Summary: 输出文本风险检测
- */
+// Description:
+//
+// Description: 输出文本风险检测
+//
+// Summary: 输出文本风险检测
 func (client *Client) CheckGuardAnswerEx(request *CheckGuardAnswerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckGuardAnswerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9580,10 +10067,11 @@ func (client *Client) CheckGuardAnswerEx(request *CheckGuardAnswerRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 美柚待审核信息提交
- * Summary: 美柚待审核信息提交
- */
+// Description:
+//
+// Description: 美柚待审核信息提交
+//
+// Summary: 美柚待审核信息提交
 func (client *Client) SubmitMeiyouAudit(request *SubmitMeiyouAuditRequest) (_result *SubmitMeiyouAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9596,10 +10084,11 @@ func (client *Client) SubmitMeiyouAudit(request *SubmitMeiyouAuditRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 美柚待审核信息提交
- * Summary: 美柚待审核信息提交
- */
+// Description:
+//
+// Description: 美柚待审核信息提交
+//
+// Summary: 美柚待审核信息提交
 func (client *Client) SubmitMeiyouAuditEx(request *SubmitMeiyouAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitMeiyouAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9614,10 +10103,11 @@ func (client *Client) SubmitMeiyouAuditEx(request *SubmitMeiyouAuditRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 查询美柚审核Agent节点信息
- * Summary: 查询美柚审核Agent节点信息
- */
+// Description:
+//
+// Description: 查询美柚审核Agent节点信息
+//
+// Summary: 查询美柚审核Agent节点信息
 func (client *Client) QueryMeiyouAgentaudit(request *QueryMeiyouAgentauditRequest) (_result *QueryMeiyouAgentauditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9630,10 +10120,11 @@ func (client *Client) QueryMeiyouAgentaudit(request *QueryMeiyouAgentauditReques
 	return _result, _err
 }
 
-/**
- * Description: 查询美柚审核Agent节点信息
- * Summary: 查询美柚审核Agent节点信息
- */
+// Description:
+//
+// Description: 查询美柚审核Agent节点信息
+//
+// Summary: 查询美柚审核Agent节点信息
 func (client *Client) QueryMeiyouAgentauditEx(request *QueryMeiyouAgentauditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMeiyouAgentauditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9648,10 +10139,11 @@ func (client *Client) QueryMeiyouAgentauditEx(request *QueryMeiyouAgentauditRequ
 	return _result, _err
 }
 
-/**
- * Description: 更新美柚审核Agent审核结果
- * Summary: 更新美柚审核Agent审核结果
- */
+// Description:
+//
+// Description: 更新美柚审核Agent审核结果
+//
+// Summary: 更新美柚审核Agent审核结果
 func (client *Client) UpdateAicoguardcoreMeiyou(request *UpdateAicoguardcoreMeiyouRequest) (_result *UpdateAicoguardcoreMeiyouResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9664,10 +10156,11 @@ func (client *Client) UpdateAicoguardcoreMeiyou(request *UpdateAicoguardcoreMeiy
 	return _result, _err
 }
 
-/**
- * Description: 更新美柚审核Agent审核结果
- * Summary: 更新美柚审核Agent审核结果
- */
+// Description:
+//
+// Description: 更新美柚审核Agent审核结果
+//
+// Summary: 更新美柚审核Agent审核结果
 func (client *Client) UpdateAicoguardcoreMeiyouEx(request *UpdateAicoguardcoreMeiyouRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateAicoguardcoreMeiyouResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9682,10 +10175,11 @@ func (client *Client) UpdateAicoguardcoreMeiyouEx(request *UpdateAicoguardcoreMe
 	return _result, _err
 }
 
-/**
- * Description: 文档人审入审
- * Summary: 文档人审入审
- */
+// Description:
+//
+// Description: 文档人审入审
+//
+// Summary: 文档人审入审
 func (client *Client) SubmitGuardDocument(request *SubmitGuardDocumentRequest) (_result *SubmitGuardDocumentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9698,10 +10192,11 @@ func (client *Client) SubmitGuardDocument(request *SubmitGuardDocumentRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 文档人审入审
- * Summary: 文档人审入审
- */
+// Description:
+//
+// Description: 文档人审入审
+//
+// Summary: 文档人审入审
 func (client *Client) SubmitGuardDocumentEx(request *SubmitGuardDocumentRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitGuardDocumentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9716,10 +10211,11 @@ func (client *Client) SubmitGuardDocumentEx(request *SubmitGuardDocumentRequest,
 	return _result, _err
 }
 
-/**
- * Description: 文档人审查询
- * Summary: 文档人审查询
- */
+// Description:
+//
+// Description: 文档人审查询
+//
+// Summary: 文档人审查询
 func (client *Client) QueryGuardDocument(request *QueryGuardDocumentRequest) (_result *QueryGuardDocumentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9732,10 +10228,11 @@ func (client *Client) QueryGuardDocument(request *QueryGuardDocumentRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 文档人审查询
- * Summary: 文档人审查询
- */
+// Description:
+//
+// Description: 文档人审查询
+//
+// Summary: 文档人审查询
 func (client *Client) QueryGuardDocumentEx(request *QueryGuardDocumentRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGuardDocumentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9750,10 +10247,11 @@ func (client *Client) QueryGuardDocumentEx(request *QueryGuardDocumentRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 天鉴SaaS提问检测
- * Summary: 天鉴SaaS提问检测
- */
+// Description:
+//
+// Description: 天鉴SaaS提问检测
+//
+// Summary: 天鉴SaaS提问检测
 func (client *Client) QuerySecurityQuestion(request *QuerySecurityQuestionRequest) (_result *QuerySecurityQuestionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9766,10 +10264,11 @@ func (client *Client) QuerySecurityQuestion(request *QuerySecurityQuestionReques
 	return _result, _err
 }
 
-/**
- * Description: 天鉴SaaS提问检测
- * Summary: 天鉴SaaS提问检测
- */
+// Description:
+//
+// Description: 天鉴SaaS提问检测
+//
+// Summary: 天鉴SaaS提问检测
 func (client *Client) QuerySecurityQuestionEx(request *QuerySecurityQuestionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySecurityQuestionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9784,10 +10283,11 @@ func (client *Client) QuerySecurityQuestionEx(request *QuerySecurityQuestionRequ
 	return _result, _err
 }
 
-/**
- * Description: 天鉴SaaS回答检测
- * Summary: 天鉴SaaS回答检测
- */
+// Description:
+//
+// Description: 天鉴SaaS回答检测
+//
+// Summary: 天鉴SaaS回答检测
 func (client *Client) QuerySecurityAnswer(request *QuerySecurityAnswerRequest) (_result *QuerySecurityAnswerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9800,10 +10300,11 @@ func (client *Client) QuerySecurityAnswer(request *QuerySecurityAnswerRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 天鉴SaaS回答检测
- * Summary: 天鉴SaaS回答检测
- */
+// Description:
+//
+// Description: 天鉴SaaS回答检测
+//
+// Summary: 天鉴SaaS回答检测
 func (client *Client) QuerySecurityAnswerEx(request *QuerySecurityAnswerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySecurityAnswerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9818,10 +10319,11 @@ func (client *Client) QuerySecurityAnswerEx(request *QuerySecurityAnswerRequest,
 	return _result, _err
 }
 
-/**
- * Description: 天鉴图片检测功能saas版本
- * Summary: 天鉴图片检测功能saas
- */
+// Description:
+//
+// Description: 天鉴图片检测功能saas版本
+//
+// Summary: 天鉴图片检测功能saas
 func (client *Client) QuerySecurityImage(request *QuerySecurityImageRequest) (_result *QuerySecurityImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -9834,10 +10336,11 @@ func (client *Client) QuerySecurityImage(request *QuerySecurityImageRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 天鉴图片检测功能saas版本
- * Summary: 天鉴图片检测功能saas
- */
+// Description:
+//
+// Description: 天鉴图片检测功能saas版本
+//
+// Summary: 天鉴图片检测功能saas
 func (client *Client) QuerySecurityImageEx(request *QuerySecurityImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySecurityImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
